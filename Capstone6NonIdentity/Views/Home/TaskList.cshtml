@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "TaskList";
+}
+<h1>Task List</h1>
+@TempData["LoggedIn"]<br/>
+<a href="/Home/AddTask" />Add New Task</a>
+<table border="1" class="table">
+
+    <th>Task ID</th>
+    <th>Task Description</th>
+    <th>Due Date</th>
+    <th>Complete?</th>
+    <th>Mark as Complete</th>
+    <th>Delete Task</th>
+
+    @foreach (var task in ViewBag.Tasks)
+    {
+        if (ViewBag.CurrentUserUserID == task.UserID)
+        {
+            <tr>
+                <td>
+                    @task.TaskID
+                </td>
+                <td>
+                    @task.Description
+                </td>
+                <td>
+                    @task.DueDate
+                </td>
+                <td>
+                    @task.Complete
+                </td>
+                <td>
+                    <a href="/Home/UpdateComplete?taskID=@task.TaskID">Complete</a>
+                </td>
+                <td>
+                    <a href="/Home/DeleteTask?taskID=@task.TaskID">Delete</a>
+                </td>
+
+            </tr>
+
+        }
+
+    }
+</table>

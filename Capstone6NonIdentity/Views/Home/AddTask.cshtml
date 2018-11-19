@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "AddTask";
+}
+<h2>Add a New Task</h2>
+
+<form action="/Home/AddNewTask">
+    <p>Description:</p>
+    <input type="text" name="Description" placeholder="Describe your task" /> <br /> <br />
+    <p>Due Date:</p>
+    <input type="text" name="DueDate" placeholder="Due Date" /> <br />  <br />  @*Control D*@
+    <p>Task Complete?</p>
+    <label>Complete</label><input type="radio" name="Complete" value="true" /> <br /> <br />
+    <label>Not Complete</label><input type="radio" name="Complete" value="false" /> <br /> <br />
+
+    <input type="submit" value="Add this Task" />
+</form>
